@@ -7,6 +7,7 @@
     <tr>
       <th>Content</th>
       <th>Datetime</th>
+      <th>User</th>
       <th colspan="3"></th>
     </tr>
   </thead>
@@ -16,6 +17,7 @@
       <tr>
         <td><%= minipost.content %></td>
         <td><%= minipost.datetime %></td>
+        <td><%= minipost.user_id %></td>
         <td><%= link_to 'Show', minipost %></td>
         <td><%= link_to 'Edit', edit_minipost_path(minipost) %></td>
         <td><%= link_to 'Destroy', minipost, method: :delete, data: { confirm: 'Are you sure?' } %></td>

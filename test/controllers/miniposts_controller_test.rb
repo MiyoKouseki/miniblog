@@ -17,7 +17,7 @@ class MinipostsControllerTest < ActionDispatch::IntegrationTest
 
   test "should create minipost" do
     assert_difference('Minipost.count') do
-      post miniposts_url, params: { minipost: { content: @minipost.content, datetime: @minipost.datetime } }
+      post miniposts_url, params: { minipost: { content: @minipost.content, datetime: @minipost.datetime, user_id: @minipost.user_id } }
     end
 
     assert_redirected_to minipost_url(Minipost.last)
@@ -34,7 +34,7 @@ class MinipostsControllerTest < ActionDispatch::IntegrationTest
   end
 
   test "should update minipost" do
-    patch minipost_url(@minipost), params: { minipost: { content: @minipost.content, datetime: @minipost.datetime } }
+    patch minipost_url(@minipost), params: { minipost: { content: @minipost.content, datetime: @minipost.datetime, user_id: @minipost.user_id } }
     assert_redirected_to minipost_url(@minipost)
   end
 

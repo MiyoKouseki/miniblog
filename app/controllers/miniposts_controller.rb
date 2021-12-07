@@ -69,6 +69,6 @@ class MinipostsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def minipost_params
-      params.require(:minipost).permit(:content, :datetime)
+      params.require(:minipost).permit(:content, :datetime, :user_id)
     end
 end

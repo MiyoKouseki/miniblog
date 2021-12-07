@@ -16,6 +16,7 @@ class MinipostsTest < ApplicationSystemTestCase
 
     fill_in "Content", with: @minipost.content
     fill_in "Datetime", with: @minipost.datetime
+    fill_in "User", with: @minipost.user_id
     click_on "Create Minipost"
 
     assert_text "Minipost was successfully created"
@@ -28,6 +29,7 @@ class MinipostsTest < ApplicationSystemTestCase
 
     fill_in "Content", with: @minipost.content
     fill_in "Datetime", with: @minipost.datetime
+    fill_in "User", with: @minipost.user_id
     click_on "Update Minipost"
 
     assert_text "Minipost was successfully updated"
