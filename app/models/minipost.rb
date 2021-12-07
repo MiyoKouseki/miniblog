@@ -1,0 +1,2 @@
+class Minipost < ApplicationRecord
+end
