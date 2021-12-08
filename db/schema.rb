@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_12_07_113220) do
+ActiveRecord::Schema.define(version: 2021_12_08_092046) do
 
   create_table "miniposts", force: :cascade do |t|
     t.text "content"
@@ -18,6 +18,16 @@ ActiveRecord::Schema.define(version: 2021_12_07_113220) do
     t.integer "user_id"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+  end
+
+  create_table "users", force: :cascade do |t|
+    t.string "name"
+    t.text "profile"
+    t.text "blog_url"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.string "password_digest"
+    t.text "email"
   end
 
 end
