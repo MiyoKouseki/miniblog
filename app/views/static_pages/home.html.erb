@@ -1,2 +1,11 @@
 <h1>StaticPages#home</h1>
 <p>Find me in app/views/static_pages/home.html.erb</p>
+
+<% @miniposts.each do |minipost| %>
+<li>
+  <td><%= minipost.user_id %></td>  
+  <td><%= minipost.content %></td>
+  <td><%= minipost.datetime %></td>
+</li>
+<% end %>
+
