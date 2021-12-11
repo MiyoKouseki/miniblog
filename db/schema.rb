@@ -22,12 +22,12 @@ ActiveRecord::Schema.define(version: 2021_12_11_002828) do
 
   create_table "users", force: :cascade do |t|
     t.string "name"
+    t.text "email"
     t.text "profile"
     t.text "blog_url"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.string "password_digest"
-    t.text "email"
   end
 
 end
