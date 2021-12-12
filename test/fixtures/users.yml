@@ -2,10 +2,12 @@
 
 one:
   name: MyString
+  email: MyText
   profile: MyText
   blog_url: MyText
 
 two:
   name: MyString
+  email: MyText
   profile: MyText
   blog_url: MyText

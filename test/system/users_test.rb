@@ -15,6 +15,7 @@ class UsersTest < ApplicationSystemTestCase
     click_on "New User"
 
     fill_in "Blog url", with: @user.blog_url
+    fill_in "Email", with: @user.email
     fill_in "Name", with: @user.name
     fill_in "Profile", with: @user.profile
     click_on "Create User"
@@ -28,6 +29,7 @@ class UsersTest < ApplicationSystemTestCase
     click_on "Edit", match: :first
 
     fill_in "Blog url", with: @user.blog_url
+    fill_in "Email", with: @user.email
     fill_in "Name", with: @user.name
     fill_in "Profile", with: @user.profile
     click_on "Update User"

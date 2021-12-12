@@ -2,24 +2,18 @@
 %html
   %head
     %meta{:content => "text/html; charset=UTF-8", "http-equiv" => "Content-Type"}/
-    %title Miniblog
+    %title Microblog
     = csrf_meta_tags
     = csp_meta_tag
     = stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload'
     = javascript_pack_tag 'application', 'data-turbolinks-track': 'reload'
-  /[if lt IE 9]
-    <script src="//cdnjs.cloudflare.com/ajax/libs/html5shiv/r29/html5.min.js">
-    </script>
+    = render 'layouts/shim'
   %body
-    %header.navbar.navbar-fixed-top.navbar-inverse
-      .container
-        = link_to "Miniblog", '/', id: "logo"
-        %nav
-          %ul.nav.navbar-nav.navbar-right
-            %li= link_to "Home",   '#'
-            %li= link_to "Help",   '#'
-            %li= link_to "Log in", '#'
+    = render 'layouts/header'
     .container
+      %p.alert= alert
+      - flash.each do |message_type, message|
+        %div{class: "alert alert-#{message_type}"}= message
       = yield
       = render 'layouts/footer'
       = debug(params) if Rails.env.development?

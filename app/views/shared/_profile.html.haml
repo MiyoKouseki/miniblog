@@ -1,0 +1,4 @@
+.profile.clearfix
+  = link_to gravatar_for(@user, size: 75), @user
+  %div= link_to @user.name, @user
+  %div= @user.email

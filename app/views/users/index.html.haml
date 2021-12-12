@@ -1,25 +1,9 @@
-%h1 Listing users
-
-%table
-  %thead
-    %tr
-      %th Name
-      %th Profile
-      %th Blog url
-      %th
-      %th
-      %th
-
-  %tbody
-    - @users.each do |user|
-      %tr
-        %td= user.name
-        %td= user.profile
-        %td= user.blog_url
-        %td= link_to 'Show', user
-        %td= link_to 'Edit', edit_user_path(user)
-        %td= link_to 'Destroy', user, method: :delete, data: { confirm: 'Are you sure?' }
-
-%br
-
-= link_to 'New User', new_user_path
+- provide(:title, 'All users')
+%h1 All users
+= will_paginate
+%ul.users
+  - @users.each do |user|
+    %li
+      = gravatar_for user, size: 50
+      = link_to user.name, user
+= will_paginate
