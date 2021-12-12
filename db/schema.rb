@@ -21,14 +21,6 @@ ActiveRecord::Schema.define(version: 2021_12_11_020116) do
     t.index ["user_id"], name: "index_microposts_on_user_id"
   end
 
-  create_table "miniposts", force: :cascade do |t|
-    t.text "content"
-    t.datetime "datetime"
-    t.integer "user_id"
-    t.datetime "created_at", precision: 6, null: false
-    t.datetime "updated_at", precision: 6, null: false
-  end
-
   create_table "users", force: :cascade do |t|
     t.string "name"
     t.text "email"
