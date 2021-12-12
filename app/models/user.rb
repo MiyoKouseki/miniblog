@@ -8,4 +8,9 @@ class User < ApplicationRecord
 
   validates :email, presence: true, uniqueness: true, format: { with: /\A[^@\s]+@[^@\s]+\z/, message: 'Invalid email' }
   validates :profile, length: {maximum: 200}
+
+  def feed
+    Micropost.where("user_id = ?", id)
+  end
+  
 end

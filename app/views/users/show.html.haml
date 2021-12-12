@@ -2,7 +2,9 @@
 .row
   %aside.col-md-4
     %section.user_info
-      = render 'shared/profile'
+      = render 'shared/user_info'
+    %section.micropost_form
+      = render 'shared/micropost_form'
   .col-md-8
     - if @user.microposts.any?
       %h3
@@ -10,3 +12,4 @@
       %ol.microposts
         = render @microposts
       = will_paginate @microposts
+
