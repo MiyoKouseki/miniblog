@@ -1,7 +1,5 @@
 class UsersController < ApplicationController
   before_action :current_user, only: [:index, :edit, :update]
-  #before_action :correct_user, only: [:edit, :update]
-  #before_action :set_user, only: [:edit, :update]
 
   def index
     @users = User.paginate(page: params[:page])
@@ -34,17 +32,7 @@ class UsersController < ApplicationController
       redirect_back_or @user
     else
       render 'new'
-    end    
-    
-    # respond_to do |format|
-    #   if @user.save
-    #     format.html { redirect_to @user, notice: 'User was successfully created.' }
-    #     format.json { render :show, status: :created, location: @user }
-    #   else
-    #     format.html { render :new }
-    #     format.json { render json: @user.errors, status: :unprocessable_entity }
-    #   end
-    # end
+    end        
   end
 
   def update
@@ -55,17 +43,7 @@ class UsersController < ApplicationController
       else
         render 'edit'
       end
-    end
-    
-    # respond_to do |format|
-    #   if @user.update(user_params)
-    #     format.html { redirect_to @user, notice: 'User was successfully updated.' }
-    #     format.json { render :show, status: :ok, location: @user }
-    #   else
-    #     format.html { render :edit }
-    #     format.json { render json: @user.errors, status: :unprocessable_entity }
-    #   end
-    # end
+    end    
   end
 
   def destroy
@@ -84,16 +62,5 @@ class UsersController < ApplicationController
     def user_params
       params.require(:user).permit(:name, :email, :password,
                                    :password_confirmation)
-    end
-    
-    # def correct_user
-    #   @user = User.find(params[:id])
-    #   redirect_to(root_url) unless current_user?(@user)
-    # end
-
-    # def current_user?(user)
-    #   user && user == current_user
-    # end
-
-    
+    end        
 end
