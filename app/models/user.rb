@@ -1,5 +1,9 @@
 # coding: utf-8
 class User < ApplicationRecord
+  # Include default devise modules. Others available are:
+  # :confirmable, :lockable, :timeoutable, :trackable and :omniauthable
+  devise :database_authenticatable, :registerable,
+         :recoverable, :rememberable, :validatable
   has_many :microposts, dependent: :destroy
   has_secure_password
   validates :name, format: {with: /\A[a-zA-Z]+\Z/,
