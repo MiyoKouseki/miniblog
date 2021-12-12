@@ -1,6 +1,6 @@
 class UsersController < ApplicationController
-  before_action :logged_in_user, only: [:index, :edit, :update]
-  before_action :correct_user,   only: [:edit, :update]
+  before_action :current_user, only: [:index, :edit, :update]
+  #before_action :correct_user, only: [:edit, :update]
   #before_action :set_user, only: [:edit, :update]
 
   def index
@@ -8,7 +8,7 @@ class UsersController < ApplicationController
   end
 
   def show
-    if logged_in?
+    if user_signed_in?
       @micropost  = current_user.microposts.build
       @feed_items = current_user.feed.paginate(page: params[:page])
     end
@@ -22,7 +22,7 @@ class UsersController < ApplicationController
   end
 
   def edit
-    @user = User.find(params[:id])
+    @user = User.find(params[:id])    
   end
   
 
@@ -86,9 +86,14 @@ class UsersController < ApplicationController
                                    :password_confirmation)
     end
     
-    def correct_user
-      @user = User.find(params[:id])
-      redirect_to(root_url) unless current_user?(@user)
-    end
+    # def correct_user
+    #   @user = User.find(params[:id])
+    #   redirect_to(root_url) unless current_user?(@user)
+    # end
 
+    # def current_user?(user)
+    #   user && user == current_user
+    # end
+
+    
 end

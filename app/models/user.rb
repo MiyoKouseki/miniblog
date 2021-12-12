@@ -5,10 +5,10 @@ class User < ApplicationRecord
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
   has_many :microposts, dependent: :destroy
-  has_secure_password
-  validates :name, format: {with: /\A[a-zA-Z]+\Z/,
-                            message: "alphabet is only available" },
-            length: { maximum: 20 }
+  #has_secure_password
+  # validates :name, format: {with: /\A[a-zA-Z]+\Z/,
+  #                           message: "alphabet is only available" },
+  #           length: { maximum: 20 }
 
   validates :email, presence: true, uniqueness: true, format: { with: /\A[^@\s]+@[^@\s]+\z/, message: 'Invalid email' }
   validates :profile, length: {maximum: 200}
