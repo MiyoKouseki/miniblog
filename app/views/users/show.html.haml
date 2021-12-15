@@ -1,6 +1,6 @@
 - provide(:title, @user.name)
 .row
-  %aside.col-md-4
+  %aside.col-md-4    
     %section.user_info
       = render 'shared/user_info'
     %section.micropost_form
@@ -12,4 +12,3 @@
       %ol.microposts
         = render @microposts
       = will_paginate @microposts
-
