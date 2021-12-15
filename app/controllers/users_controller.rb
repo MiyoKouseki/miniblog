@@ -1,6 +1,6 @@
 class UsersController < ApplicationController
-  before_action :current_user, only: [:index, :edit, :update]
-
+  before_action :current_user, only: [:index, :edit, :update, :destroy,
+                                        :following, :followers]
   def index
     @users = User.paginate(page: params[:page])
   end
@@ -9,8 +9,7 @@ class UsersController < ApplicationController
     if user_signed_in?
       @micropost  = current_user.microposts.build
       @feed_items = current_user.feed.paginate(page: params[:page])
-    end
-    
+    end    
     @user = User.find(params[:id])
     @microposts = @user.microposts.paginate(page: params[:page])   
   end
@@ -54,6 +53,20 @@ class UsersController < ApplicationController
     end
   end
 
+  def following
+    @title = "Following"
+    @user  = User.find(params[:id])
+    @users = @user.following.paginate(page: params[:page])
+    render 'show_follow'
+  end
+
+  def followers
+    @title = "Followers"
+    @user  = User.find(params[:id])
+    @users = @user.followers.paginate(page: params[:page])
+    render 'show_follow'
+  end
+  
   private
   # def set_user
   #   @user = User.find(params[:id])
