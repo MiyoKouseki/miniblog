@@ -34,17 +34,6 @@ class UsersController < ApplicationController
     end        
   end
 
-  def update
-    def update
-      if @user.update(user_params)
-        flash[:success] = "Profile updated"
-        redirect_to @user
-      else
-        render 'edit'
-      end
-    end    
-  end
-
   def following
     @title = "Following"
     @user  = User.find(params[:id])
