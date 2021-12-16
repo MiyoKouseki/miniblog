@@ -12,7 +12,10 @@ class User < ApplicationRecord
                                    dependent:   :destroy
   has_many :following, through: :active_relationships,  source: :followed
   has_many :followers, through: :passive_relationships, source: :follower
-  
+
+  validates :name, format: { with: /\A[a-zA-Z]+\z/,
+                             message: 'alphabet is only available'},
+            length: {maximum: 20}
   validates :email, presence: true, uniqueness: true,
             format: { with: /\A[^@\s]+@[^@\s]+\z/, message: 'Invalid email' }
   validates :profile, length: {maximum: 200}

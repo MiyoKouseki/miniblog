@@ -15,7 +15,7 @@ User.create!(name:  "ExampleUser",
              password_confirmation: "foobar")
 
 # add other users
-99.times do |n|
+20.times do |n|
   name  = Faker::Name.first_name
   email = "example-#{n+1}@railstutorial.org"
   password = "password"
@@ -27,7 +27,7 @@ end
 
 # add microposts
 users = User.order(:created_at).take(6)
-50.times do
+10.times do
   content = Faker::Lorem.sentence(word_count: 5)
   users.each { |user| user.microposts.create!(content: content) }
 end
