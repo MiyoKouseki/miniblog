@@ -1,5 +1,15 @@
 class ApplicationController < ActionController::Base
-  # authentication by devise
+  before_action :basic_auth, if: :production?  
   before_action :authenticate_user!, only: [:index]
-  
+
+  private  
+    def production?
+      Rails.env.production?
+    end
+
+    def basic_auth
+      authenticate_or_request_with_http_basic do |username, password|
+        username == ENV['BASIC_AUTH_USER'] && password == ENV['BASIC_AUTH_PASSWORD']
+      end
+    end  
 end
