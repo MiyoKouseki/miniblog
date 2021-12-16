@@ -31,11 +31,14 @@ group :development do
   # [1] https://github.com/rails/spring/issues/635#issuecomment-806108967
 end
 
-group :test do
-  gem 'capybara',           '3.28.0'
-  gem 'selenium-webdriver', '3.142.4'
-  gem 'webdrivers',         '4.1.2'
+# group :test do
+#   gem 'capybara',           '3.28.0'
+#   gem 'selenium-webdriver', '3.142.4'
+#   gem 'webdrivers',         '4.1.2'
+# end
+
+group :production do
+  gem 'pg', '0.20.0'
 end
 
-# Windows ではタイムゾーン情報用の tzinfo-data gem を含める必要があります
 gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
