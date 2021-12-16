@@ -1,14 +1,14 @@
-%h1 Edit User Information
+%h1 Edit #{resource_name.to_s.humanize}
 .row
   .col-md-6.col-md-offset-3
-    = form_with(model: @user, local: true, url: registration_path(current_user)) do |f|
+    = form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f|
       = render "devise/shared/error_messages", resource: resource
       = f.label :name
-      = f.text_field :name, autofocus: true
+      = f.text_field :name, autofocus: true, autocomplete: "name"
       = f.label :profile
-      = f.text_field :profile, autofocus: true  
+      = f.text_field :profile, autofocus: true, autocomplete: "profile"      
       = f.label :blog_url
-      = f.text_field :blog_url, autofocus: true     
+      = f.text_field :blog_url, autofocus: true, autocomplete: "blog_url"      
       = f.label :email
       = f.email_field :email, autofocus: true, autocomplete: "email"
       - if devise_mapping.confirmable? && resource.pending_reconfirmation?
@@ -23,7 +23,7 @@
       %i (we need your current password to confirm your changes)
       = f.password_field :current_password, autocomplete: "current-password"
       = f.submit "Update"
-    %h3 Delete my account
+    %h3 Cancel my account
     %p
-      Unhappy? #{button_to "Delete my account", registration_path(resource_name), data: { confirm: "Are you sure?" }, method: :delete}
-      = link_to "Back", :back
+      Unhappy? #{button_to "Cancel my account", registration_path(resource_name), data: { confirm: "Are you sure?" }, method: :delete}
+    = link_to "Back", :back
