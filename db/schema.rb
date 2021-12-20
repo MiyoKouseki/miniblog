@@ -44,7 +44,6 @@ ActiveRecord::Schema.define(version: 2021_12_16_110513) do
     t.text "blog_url"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-    t.string "password_digest"
     t.string "email", default: "", null: false
     t.string "encrypted_password", default: "", null: false
     t.string "reset_password_token"
