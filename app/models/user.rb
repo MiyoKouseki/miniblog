@@ -41,5 +41,20 @@ class User < ApplicationRecord
   def following?(other_user)
     following.include?(other_user)
   end
+
+  def like(micropost)
+    micropost.favorites.create(user_id: self.id)
+  end
+
+  def unlike(micropost)
+    micropost.favorites.find_by(user_id: self.id).destroy
+  end
+  
+  
+  def like?(micropost)
+    Favorite.exist?(user_id: self.id,
+                    micropost_id: micropost.id)
+  end
+  
   
 end

@@ -2,8 +2,7 @@
   = link_to gravatar_for(micropost.user, size: 50), micropost.user
   %span.user= link_to micropost.user.name, micropost.user
   %span.content= micropost.content
-  %a{href: "#{fans_micropost_path micropost.id}"}
-    %strong
-      = "Fav #{micropost.fans.count}"
+  %a{href: "#{favorited_micropost_path micropost.id}"}
+    = "Fav #{micropost.favorites.count}"
   %span.timestamp
     Posted #{@user.created_at.strftime('%Y/%m/%d %H:%M')}.

@@ -14,13 +14,10 @@ class MicropostsController < ApplicationController
   def destroy
   end
 
-
-  def fans
-    @title = "Fans"
-    @fans = Micropost.find(params[:id]).fans.paginate(page: params[:page])
-    render 'show_fans'
+  def favorited
+    @users = Micropost.find(params[:id]).favouser.paginate(page: params[:page])
+    render 'show_favorite'
   end
-  
   
   private
     def micropost_params

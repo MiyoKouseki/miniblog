@@ -16,11 +16,10 @@
     -#         = link_to gravatar_for(user, size: 30), user
   .col-md-8
     %h3= @title
-    - if @fans.any?      
-      %ul.users
-        - @fans.each do |user|
+    - if @users.any?
+      %ul.users       
+        - @users.each do |user|
           %li
             = gravatar_for user, size: 50
             = link_to user.name, user       
-      = will_paginate(@fans)
-
+        = will_paginate(@users)
