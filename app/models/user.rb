@@ -52,7 +52,7 @@ class User < ApplicationRecord
   
   
   def like?(micropost)
-    Favorite.exist?(user_id: self.id,
+    Favorite.exists?(user_id: self.id,
                     micropost_id: micropost.id)
   end
   

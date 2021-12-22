@@ -1,14 +1,12 @@
+- provide(:title, "Home")
 - if user_signed_in?
   .row
     %aside.col-md-4
-      %section.user_info
-        = render 'shared/user_info'
-      %section.stats
-        = render 'shared/stats'        
-      %section.micropost_form
-        = render 'shared/micropost_form'
+      %section.user_info= render 'shared/user_info'
+      %section.stats= render 'shared/stats'        
+      %section.micropost_form= render 'shared/micropost_form'
     .col-md-8
-      %h3 Micropost Feed
+      %h2 Micropost Feed
       = render 'shared/feed'
 - else
   .center.jumbotron
